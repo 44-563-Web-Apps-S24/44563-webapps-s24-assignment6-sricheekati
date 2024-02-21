@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srilakshmi Packs for a trip</title>
+    
+ </head>
+<body>
+
+<h2>Srilakshmi Packs for a trip</h2>
+<form id="packingForm">
+    <label for="light">Pack light</label>
+    <input type="checkbox" id="light" value="True">
+  
+    <label for="carry">Carry on</label>
+    <input type="checkbox" id="carry" value="True">
+  
+    <label for="tablet">Tablet</label>
+    <input type="checkbox" id="tablet" value="False">
+  </form>
+  <button type="button" onclick="selectPacking()">Select for packing</button><br><br>
+  <div id="results"></div><br><br>
+  <form>
+    <label for="month">Enter travel month:</label>
+    <input type="text" id="month" value="May"><br><br>
+  
+    <label for="price">Enter price:</label>
+    <input type="text" id="price"><br><br>
+  
+    <button type="button" onclick="updatePacking()">Update the pack</button>
+  </form>  
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result2">This text will be replaced </p>
+
+<script> 
+let my_packing = {};
+
+function selectPacking() {
+  my_packing = {};
+  my_packing.light = document.getElementById('light').checked;
+  my_packing.carry = document.getElementById('carry').checked;
+  my_packing.tablet = document.getElementById('tablet').checked;
+  document.getElementById('results').innerHTML = JSON.stringify(my_packing);
+}
+function updatePacking() {
+  let month = document.getElementById('month').value;
+  let price = document.getElementById('price').value;
+
+  my_packing[month] = price;
+
+  document.getElementById('results').innerHTML = JSON.stringify(my_packing);
+}
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result2")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
