@@ -3,6 +3,18 @@
  <head>
     <title>Animal game by srilakshmi</title>
  </head>
+ <style>
+    .image-container {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
 <body>
     <h1>Animal game by srilakshmi</h1>
 <form id="animalForm">
@@ -16,6 +28,11 @@
 </form>
 
 <p id="result"></p>
+
+<div class="image-container" onclick="selectImage()">
+  <img id="drinkImage" src="coffee.jpg" alt="Drink Image">
+</div>
+
 
 <script>
     let wrong = 0;
@@ -35,7 +52,31 @@
 
         document.getElementById("result").innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
     }
+
+
+    let useImage = 1;
+
+  function selectImage() {
+    switch (useImage) {
+      case 1:
+        document.getElementById('drinkImage').src = 'hot_chocolate.jpg';
+        useImage = 2;
+        break;
+      case 2:
+        document.getElementById('drinkImage').src = 'Expresso.jpg';
+        useImage = 3;
+        break;
+      case 3:
+        document.getElementById('drinkImage').src = 'coffee.jpg';
+        useImage = 1;
+        break;
+      default:
+        break;
+    }
+  }
 </script>
+
+
 
 </body>
 </html> 
