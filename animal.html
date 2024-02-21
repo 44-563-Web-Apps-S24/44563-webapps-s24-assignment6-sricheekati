@@ -69,6 +69,11 @@ function selectImage() {
         }
 
         document.getElementById("result").innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+        if (wrong > correct) {
+        document.querySelector('button').onclick = function() {
+          alert('Sorry, too many wrong guesses.');
+        };
+    }
     }
 </script>
 
