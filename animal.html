@@ -35,6 +35,29 @@
 
 
 <script>
+
+
+
+let useImage = 1;
+
+function selectImage() {
+  switch (useImage) {
+    case 1:
+      document.getElementById('drinkImage').src = 'hot_chocolate.jpg';
+      useImage = 2;
+      break;
+    case 2:
+      document.getElementById('drinkImage').src = 'Expresso.jpg';
+      useImage = 3;
+      break;
+    case 3:
+      document.getElementById('drinkImage').src = 'coffee.jpg';
+      useImage = 1;
+      break;
+    default:
+      break;
+  }
+}
     let wrong = 0;
     let correct = 0;
 
@@ -52,28 +75,6 @@
 
         document.getElementById("result").innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
     }
-
-
-    let useImage = 1;
-
-  function selectImage() {
-    switch (useImage) {
-      case 1:
-        document.getElementById('drinkImage').src = 'hot_chocolate.jpg';
-        useImage = 2;
-        break;
-      case 2:
-        document.getElementById('drinkImage').src = 'Expresso.jpg';
-        useImage = 3;
-        break;
-      case 3:
-        document.getElementById('drinkImage').src = 'coffee.jpg';
-        useImage = 1;
-        break;
-      default:
-        break;
-    }
-  }
 </script>
 
 
